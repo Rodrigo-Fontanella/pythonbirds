@@ -14,11 +14,14 @@ class Pessoa:
     #Quando inicia imprime o conteúdo para cada situação
 if __name__ == '__main__':
     # Atribui um valor para a Classe
-    rodrigo = Pessoa(nome='rodrigo')
-    izauro = Pessoa(rodrigo, nome='Izauro') #Atribuo rodrigo ao izauro
+    rodrigo = Pessoa(nome='Rodrigo')
+    lilian = Pessoa(nome='Lilian')
+    bruno = Pessoa(nome='Bruno')
+
+    izauro = Pessoa(rodrigo, lilian, bruno, nome='Izauro') #Atribuo rodrigo ao izauro
 
     #Imprime o método cumprimentar "Padrão"
-    print(Pessoa.cumprimentar(rodrigo)) #Pega o caminho da classe (Pessoa), depois vai na função (cumprimentar) e joga o "p"
+    print(Pessoa.cumprimentar(rodrigo)) #Pega o caminho da classe (Pessoa), depois vai na função (cumprimentar) e joga o id
 
     #Aqui ele imprime a ID da Classe Pessoa
     print(id(rodrigo))
@@ -26,18 +29,18 @@ if __name__ == '__main__':
     #Imprime o método cumprimentar de forma compacta
     print(rodrigo.cumprimentar())
 
-    #Imprime o conteúdo do atributo nome da classe Pessoa, atribuído de Fontanella na parte de cima
+    #Imprime o conteúdo do atributo nome da classe Pessoa, atribuído de Rodrigo na parte de cima
     print(rodrigo.nome)
 
     print(Pessoa().nome) #Nesse aqui, pega o nome=None
 
-    print(rodrigo.idade) #Imprime a idade, atributo da Classe Pessoa
+    print('Idade do Rodrigo:', rodrigo.idade) #Imprime a idade, atributo da Classe Pessoa
 
-    rodrigo.idade = 55 #Atribui uma nova idade a rodrigo
-    print(rodrigo.idade)
+    izauro.idade = 70 #Atribui idade ao Izauro
+    print('Idade do Izauro:', izauro.idade)
 
     for filho in izauro.filhos: #para cada filho do objeto izauro.filhos
-        print(filho.nome)
+        print('É filho do Sr. Izauro:', filho.nome)
 
 
 

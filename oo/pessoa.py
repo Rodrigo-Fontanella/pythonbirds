@@ -1,4 +1,5 @@
 class Pessoa:
+    olhos = 2 #Criando o atributo fora da função, ele fica padrão pra todos
 
     # ele instancia atributos iniciais para a função, nome e idade
     def __init__(self, *filhos, nome=None, idade=44): # O * significa múltiplos objetos para filhos
@@ -17,7 +18,7 @@ if __name__ == '__main__':
     lilian = Pessoa(nome='Lilian')
     bruno = Pessoa(nome='Bruno')
 
-    izauro = Pessoa(rodrigo, lilian, bruno, nome='Izauro') #Atributo rodrigo ao izauro
+    izauro = Pessoa(rodrigo, lilian, bruno, nome='Izauro') #Atributo filhos ao izauro
 
     #Imprime o método cumprimentar "Padrão"
     print(Pessoa.cumprimentar(rodrigo)) #Pega o caminho da classe (Pessoa), depois vai na função (cumprimentar) e joga o id
@@ -44,9 +45,12 @@ if __name__ == '__main__':
     izauro.sobrenome = 'Brêtas' #Em qualquer lugar do código, posso criar atributos dinâmicos extras (não precisa ser dentro da Classe)
     print('Sobrenome Izauto:', izauro.sobrenome) #Lembrando que só serve para este atributo - não funciona para outro
     #Chama-se Adicionar Atributo em tempo de execução - - não é uma boa prática
-
     del rodrigo.filhos #deleta um atributo dinamicamente de rodrigo
-
+    izauro.olhos = 1 #Aqui eu atribuo uma instância ao atributo olhos (O default de Classe é 2)
     print(izauro.__dict__) #Puxa todos os atributos do Izauro - - -> Repare o sobrenome
     print(rodrigo.__dict__) #Puxa todos os atributos do Rodrigo
-
+    rodrigo.olhos = 3 #Atribuo um novo valor ao atributo olhos
+    print('Quantos olhos tem?', Pessoa.olhos) #Puxa do atributo de Classe
+    print('Quantos olhos tem Rodrigo?',rodrigo.olhos)
+    print('Quantos olhos tem Izauro?',izauro.olhos)
+    print(id(Pessoa.olhos), id(rodrigo.olhos), id(izauro.olhos)) #olhos tem ID's diferentes para Classe Pessoa (2), rodrigo (3) e izauro (1)

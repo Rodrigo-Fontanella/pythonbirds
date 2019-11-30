@@ -43,6 +43,3 @@ if __name__ == '__main__':
         print('É filho do Sr. Izauro:', filho.nome)
 
 
-
-
-

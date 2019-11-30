@@ -66,4 +66,3 @@ if __name__ == '__main__':
     print(Pessoa.metodo_estatico(), rodrigo.metodo_estatico()) #Chama o método estático
 
     print(Pessoa.nome_e_atributos_de_classe(), rodrigo.nome_e_atributos_de_classe()) #Executa o método pela Classe e pelo objeto rodrigo
-

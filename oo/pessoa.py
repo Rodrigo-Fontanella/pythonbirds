@@ -6,7 +6,6 @@ class Pessoa:
         self.nome = nome
         self.filhos = list(filhos) #cria um atributo de lista filhos
 
-
     #cria outro método
     def cumprimentar(self):
         return f'Olá! {id(self)}' #Cria uma f string
@@ -18,7 +17,7 @@ if __name__ == '__main__':
     lilian = Pessoa(nome='Lilian')
     bruno = Pessoa(nome='Bruno')
 
-    izauro = Pessoa(rodrigo, lilian, bruno, nome='Izauro') #Atribuo rodrigo ao izauro
+    izauro = Pessoa(rodrigo, lilian, bruno, nome='Izauro') #Atributo rodrigo ao izauro
 
     #Imprime o método cumprimentar "Padrão"
     print(Pessoa.cumprimentar(rodrigo)) #Pega o caminho da classe (Pessoa), depois vai na função (cumprimentar) e joga o id
@@ -42,4 +41,12 @@ if __name__ == '__main__':
     for filho in izauro.filhos: #para cada filho do objeto izauro.filhos
         print('É filho do Sr. Izauro:', filho.nome)
 
+    izauro.sobrenome = 'Brêtas' #Em qualquer lugar do código, posso criar atributos dinâmicos extras (não precisa ser dentro da Classe)
+    print('Sobrenome Izauto:', izauro.sobrenome) #Lembrando que só serve para este atributo - não funciona para outro
+    #Chama-se Adicionar Atributo em tempo de execução - - não é uma boa prática
+
+    del rodrigo.filhos #deleta um atributo dinamicamente de rodrigo
+
+    print(izauro.__dict__) #Puxa todos os atributos do Izauro - - -> Repare o sobrenome
+    print(rodrigo.__dict__) #Puxa todos os atributos do Rodrigo
 

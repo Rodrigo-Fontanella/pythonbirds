@@ -20,7 +20,7 @@ O     L
    S
 
     Exemplo:
-    #Testando motor
+    >>> #Testando motor
     >>> motor = Motor()
     >>> motor.velocidade
     0
@@ -71,13 +71,13 @@ O     L
     >>> carro.calcular_velocidade()
     0
     >>> carro.acelerar()
-    >>>carro.calculat_velocidade()
+    >>> carro.calcular_velocidade()
     1
     >>> carro.acelerar()
-    >>>carro.calculat_velocidade()
+    >>> carro.calcular_velocidade()
     2
     >>> carro.frear()
-    >>>carro.calculat_velocidade()
+    >>> carro.calcular_velocidade()
     0
 
     >>> carro.calcular_direcao()
@@ -101,3 +101,16 @@ O     L
     >>> carro.calcular_direcao()
     >>> 'Norte'
 """
+
+
+class Motor:
+
+    def __init__(self):
+        self.velocidade = 0
+
+
+
+
+
+
+    pass

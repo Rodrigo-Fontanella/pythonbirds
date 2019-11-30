@@ -11,6 +11,14 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá! {id(self)}' #Cria uma f string
 
+    @staticmethod #Decorator, para criar método estático
+    def metodo_estatico(): #Método estático independe do objeto
+        return(42)
+
+    @classmethod #Aqui você vai ter acesso à classe que está executando o método
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}' #Retorna uma f string com o nome da Classe e com o valor de olhos
+
     #Quando inicia imprime o conteúdo para cada situação
 if __name__ == '__main__':
     # Atribui um valor para a Classe
@@ -49,8 +57,13 @@ if __name__ == '__main__':
     izauro.olhos = 1 #Aqui eu atribuo uma instância ao atributo olhos (O default de Classe é 2)
     print(izauro.__dict__) #Puxa todos os atributos do Izauro - - -> Repare o sobrenome
     print(rodrigo.__dict__) #Puxa todos os atributos do Rodrigo
-    rodrigo.olhos = 3 #Atribuo um novo valor ao atributo olhos
+    Pessoa.olhos = 3 #Atribuo um novo valor ao atributo olhos
     print('Quantos olhos tem?', Pessoa.olhos) #Puxa do atributo de Classe
     print('Quantos olhos tem Rodrigo?',rodrigo.olhos)
     print('Quantos olhos tem Izauro?',izauro.olhos)
     print(id(Pessoa.olhos), id(rodrigo.olhos), id(izauro.olhos)) #olhos tem ID's diferentes para Classe Pessoa (2), rodrigo (3) e izauro (1)
+
+    print(Pessoa.metodo_estatico(), rodrigo.metodo_estatico()) #Chama o método estático
+
+    print(Pessoa.nome_e_atributos_de_classe(), rodrigo.nome_e_atributos_de_classe()) #Executa o método pela Classe e pelo objeto rodrigo
+

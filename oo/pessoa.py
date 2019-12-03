@@ -22,13 +22,12 @@ class Pessoa:
 
 class Homem(Pessoa):# A Classe Homem herdou atributos da Classe Pessoa
     def cumprimentar(self): #Aqui você faz a sobrescrita do método cumprimentar dentro da classe Homem, que herdou de Pessoa
-        return 'Aperto de Mão'
+        cumprimentar_da_classe = super().cumprimentar() #Você pega o atributo cumprimentar da classe Pai de todas usando o super()
+        return f'{cumprimentar_da_classe}. Aperto de Mão'
 
 
 class Mutante(Pessoa): #Sobrescrita de atributo de dados
     olhos = 5
-
-
 
     #Quando inicia imprime o conteúdo para cada situação
 if __name__ == '__main__':

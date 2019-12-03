@@ -56,11 +56,13 @@ class Ator():
 
 
 
-class Obstaculo(Ator):
+class Obstaculo(Ator): #Herda atributos da Classe Ator
+    _caracter_ativo = 'O' #Sobrescreve atributos para usar suas características
     pass
 
 
 class Porco(Ator):
+    _caracter_ativo = '@'
     pass
 
 
@@ -133,8 +135,10 @@ class Passaro(Ator):
 
 
 class PassaroAmarelo(Passaro):
+    _caracter_ativo = 'A'
     pass
 
 
 class PassaroVermelho(Passaro):
+    _caracter_ativo = 'V'
     pass

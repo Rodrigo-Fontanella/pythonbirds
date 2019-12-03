@@ -9,7 +9,7 @@ class Pessoa:
 
     #cria outro método
     def cumprimentar(self):
-        return f'Olá! {id(self)}' #Cria uma f string
+        return f'Olá! meu nome é {self.nome}' #Cria uma f string
 
     @staticmethod #Decorator, para criar método estático
     def metodo_estatico(): #Método estático independe do objeto
@@ -19,12 +19,23 @@ class Pessoa:
     def nome_e_atributos_de_classe(cls):
         return f'{cls} - olhos {cls.olhos}' #Retorna uma f string com o nome da Classe e com o valor de olhos
 
+
+class Homem(Pessoa):# A Classe Homem herdou atributos da Classe Pessoa
+    def cumprimentar(self): #Aqui você faz a sobrescrita do método cumprimentar dentro da classe Homem, que herdou de Pessoa
+        return 'Aperto de Mão'
+
+
+class Mutante(Pessoa): #Sobrescrita de atributo de dados
+    olhos = 5
+
+
+
     #Quando inicia imprime o conteúdo para cada situação
 if __name__ == '__main__':
     # Atribui um valor para a Classe
-    rodrigo = Pessoa(nome='Rodrigo')
+    rodrigo = Mutante(nome='Rodrigo')
     lilian = Pessoa(nome='Lilian')
-    bruno = Pessoa(nome='Bruno')
+    bruno = Homem(nome='Bruno')
 
     izauro = Pessoa(rodrigo, lilian, bruno, nome='Izauro') #Atributo filhos ao izauro
 
@@ -57,7 +68,7 @@ if __name__ == '__main__':
     izauro.olhos = 1 #Aqui eu atribuo uma instância ao atributo olhos (O default de Classe é 2)
     print(izauro.__dict__) #Puxa todos os atributos do Izauro - - -> Repare o sobrenome
     print(rodrigo.__dict__) #Puxa todos os atributos do Rodrigo
-    Pessoa.olhos = 3 #Atribuo um novo valor ao atributo olhos
+    Pessoa.olhos = 2 #Atribuo um novo valor ao atributo olhos
     print('Quantos olhos tem?', Pessoa.olhos) #Puxa do atributo de Classe
     print('Quantos olhos tem Rodrigo?',rodrigo.olhos)
     print('Quantos olhos tem Izauro?',izauro.olhos)
@@ -66,3 +77,14 @@ if __name__ == '__main__':
     print(Pessoa.metodo_estatico(), rodrigo.metodo_estatico()) #Chama o método estático
 
     print(Pessoa.nome_e_atributos_de_classe(), rodrigo.nome_e_atributos_de_classe()) #Executa o método pela Classe e pelo objeto rodrigo
+
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa)) #pessoa é uma instância da classe Pessoa
+    print(isinstance(pessoa, Homem)) #pessoa não é um Homem
+    print(isinstance(rodrigo, Pessoa))  # rodrigo é uma instância da classe Pessoa
+    print(isinstance(rodrigo, Homem))  # rodrigo é um Homem
+
+    print('Número de olhos:', rodrigo.olhos)
+    print(rodrigo.cumprimentar())
+    print(bruno.cumprimentar())
+
